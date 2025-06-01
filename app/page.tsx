@@ -251,9 +251,10 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       <Header />
       
-      {/* Hero Section avec 3 sections colorées */}
+      {/* Hero Section avec 3 sections colorées - Responsive Mobile */}
       <main className="w-full">
-        <div className="flex h-[80vh]">
+        {/* Version Desktop */}
+        <div className="hidden lg:flex h-[80vh]">
           {/* Section 1 - Rose */}
           <div 
             className="flex-[1.05] flex flex-col items-start justify-end relative pb-16 pl-12 overflow-hidden group cursor-pointer"
@@ -374,8 +375,95 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Section avec 3 colonnes - Enrichie avec vraies infos */}
-        <div className="flex w-full">
+        {/* Version Mobile */}
+        <div className="lg:hidden">
+          {/* Section 1 - Rose Mobile */}
+          <div className="relative h-[60vh] sm:h-[70vh] overflow-hidden">
+            <Image
+              src="/hero/1.jpg"
+              alt="Hero image 1"
+              fill
+              className="object-cover z-0"
+            />
+            <div 
+              className="absolute inset-0 z-10"
+              style={{
+                background: `linear-gradient(to top, #E5004C 0%, rgba(229, 0, 76, 0) 80%)`
+              }}
+            ></div>
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 z-20">
+              <div className="bg-white px-3 py-2 mb-2 rounded">
+                <h2 className="text-lg sm:text-2xl font-bold text-[#E5004C]">
+                  Un pays, un cap, une santé pour tous
+                </h2>
+              </div>
+              <div className="bg-white px-3 py-2 rounded">
+                <p className="text-xs sm:text-sm font-bold text-[#E5004C]">
+                  Engagement du Président Félix Antoine Tshisekedi Tshilombo
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 2 - Jaune Mobile */}
+          <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
+            <Image
+              src="/hero/2.jpg"
+              alt="Hero image 2"
+              fill
+              className="object-cover z-0"
+            />
+            <div 
+              className="absolute inset-0 z-10"
+              style={{
+                background: `linear-gradient(to top, #f9b233 0%, rgba(249, 178, 51, 0) 80%)`
+              }}
+            ></div>
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 z-20">
+              <div className="bg-white px-3 py-2 mb-2 rounded">
+                <h2 className="text-lg sm:text-2xl font-bold text-[#f9b233]">
+                  Pourquoi un Fonds de Promotion de la Santé ?
+                </h2>
+              </div>
+              <div className="bg-white px-3 py-2 rounded">
+                <p className="text-xs sm:text-sm font-bold text-[#f9b233]">
+                  Bras financier du MSPHPS et maçon de la CSU
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 3 - Vert Mobile */}
+          <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
+            <Image
+              src="/hero/3.jpg"
+              alt="Hero image 3"
+              fill
+              className="object-cover z-0"
+            />
+            <div 
+              className="absolute inset-0 z-10"
+              style={{
+                background: `linear-gradient(to top, #00a19a 0%, rgba(0, 161, 154, 0) 80%)`
+              }}
+            ></div>
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 z-20">
+              <div className="bg-white px-3 py-2 mb-2 rounded">
+                <h2 className="text-lg sm:text-2xl font-bold text-[#00a19a]">
+                  Nos leviers, vos soins
+                </h2>
+              </div>
+              <div className="bg-white px-3 py-2 rounded">
+                <p className="text-xs sm:text-sm font-bold text-[#00a19a]">
+                  Financement, infrastructures, médicaments, gouvernance, innovation et qualité
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Section avec 3 colonnes - Responsive */}
+        <div className="hidden lg:flex w-full">
           {/* Section 1 - Cadre légal */}
           <div className="flex-1 relative h-[300px] flex">
             {/* Barre verticale avec image et texte */}
@@ -496,25 +584,82 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Section Activités - Structure à deux niveaux */}
-        <div className="bg-gray-100 py-12">
-          <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 bg-white py-8 border-t-[3px] border-[#00b7ff]">
-            {/* En-tête avec 3 colonnes distinctes */}
-            <div className="grid grid-cols-12 gap-8 pb-2 border-b border-gray-200">
+        {/* Version mobile des 3 colonnes */}
+        <div className="lg:hidden space-y-0">
+          {/* Section 1 Mobile - Cadre légal */}
+          <div className="bg-[#F9B233] p-4 sm:p-6">
+            <div className="border-l-4 border-white pl-4">
+              <h3 className="text-[#003B7C] text-sm font-medium mb-1">Cadre légal</h3>
+              <h2 className="text-white text-xl sm:text-2xl font-bold mb-3">Bases légales</h2>
+              <p className="text-white text-sm sm:text-base font-medium mb-4 leading-relaxed">
+                Créé par la Loi n°08/009 du 07 juillet 2008, modifiée par la Loi n°18/035 
+                du 13 décembre 2018. Organisé par le Décret n°22/15 du 09 avril 2022.
+              </p>
+              <div className="text-right">
+                <button className="bg-white text-[#F9B233] font-bold px-4 py-2 rounded text-sm">
+                  En savoir plus
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 2 Mobile - 6 Missions */}
+          <div className="bg-[#FF4343] p-4 sm:p-6">
+            <div className="border-l-4 border-white pl-4">
+              <h3 className="text-[#F9B233] text-sm font-medium mb-1">6 Missions principales</h3>
+              <h2 className="text-white text-xl sm:text-2xl font-bold mb-3">Nos missions</h2>
+              <p className="text-white text-sm sm:text-base font-medium mb-4 leading-relaxed">
+                Infrastructures sanitaires • Médicaments & produits pharmaceutiques • 
+                Gouvernance du secteur • Financements innovants • Subventionnement ESS • 
+                Collecte et gestion du sang de qualité
+              </p>
+              <div className="text-right">
+                <button className="bg-white text-[#FF4343] font-bold px-4 py-2 rounded text-sm">
+                  En savoir plus
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 3 Mobile - Vision CSU */}
+          <div className="bg-[#003B7C] p-4 sm:p-6">
+            <div className="border-l-4 border-white pl-4">
+              <h3 className="text-[#FF4343] text-sm font-medium mb-1">Vision CSU</h3>
+              <h2 className="text-white text-xl sm:text-2xl font-bold mb-3">Notre vision</h2>
+              <p className="text-white text-sm sm:text-base font-medium mb-4 leading-relaxed">
+                Réaliser la Couverture Santé Universelle : "chacun ce qu'il peut, 
+                chacun ce dont il a besoin". Réduire la charge des ménages de 43,1% 
+                actuellement à 24% d'ici 2034.
+              </p>
+              <div className="text-right">
+                <button className="bg-white text-[#003B7C] font-bold px-4 py-2 rounded text-sm">
+                  En savoir plus
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Section Activités - Structure à deux niveaux - Responsive */}
+        <div className="bg-gray-100 py-8 lg:py-12">
+          <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 bg-white py-6 lg:py-8 border-t-[3px] border-[#00b7ff]">
+            
+            {/* En-tête responsive */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 pb-2 border-b border-gray-200 mb-6">
               {/* Colonne 1 - Activités et Voir plus */}
-              <div className="col-span-4">
+              <div className="lg:col-span-4">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-2xl font-bold text-[#035fa9]">Activités</h2>
-                  <Link href={tabLinks[activeTab]} className="text-[#00b7ff] font-medium hover:underline transition-colors">Voir plus</Link>
+                  <h2 className="text-xl lg:text-2xl font-bold text-[#035fa9]">Activités</h2>
+                  <Link href={tabLinks[activeTab]} className="text-[#00b7ff] font-medium hover:underline transition-colors text-sm lg:text-base">Voir plus</Link>
                 </div>
               </div>
               
               {/* Colonne 2 - Navigation par onglets */}
-              <div className="col-span-4">
-                <div className="flex gap-6" role="tablist" aria-label="Catégories d'activités">
+              <div className="lg:col-span-4">
+                <div className="flex flex-wrap gap-2 sm:gap-4 lg:gap-6" role="tablist" aria-label="Catégories d'activités">
                   <button
                     onClick={() => setActiveTab('actualites')}
-                    className={`font-medium pb-1 transition-colors ${
+                    className={`font-medium pb-1 transition-colors text-sm lg:text-base ${
                       activeTab === 'actualites' 
                         ? 'text-[#e5004c] border-b-2 border-[#e5004c]' 
                         : 'text-[#035fa9] hover:text-[#e5004c] hover:border-b-2 hover:border-[#e5004c]'
@@ -527,7 +672,7 @@ export default function Home() {
                   </button>
                   <button
                     onClick={() => setActiveTab('evenements')}
-                    className={`font-medium pb-1 transition-colors ${
+                    className={`font-medium pb-1 transition-colors text-sm lg:text-base ${
                       activeTab === 'evenements' 
                         ? 'text-[#e5004c] border-b-2 border-[#e5004c]' 
                         : 'text-[#035fa9] hover:text-[#e5004c] hover:border-b-2 hover:border-[#e5004c]'
@@ -540,7 +685,7 @@ export default function Home() {
                   </button>
                   <button
                     onClick={() => setActiveTab('a-venir')}
-                    className={`font-medium pb-1 transition-colors ${
+                    className={`font-medium pb-1 transition-colors text-sm lg:text-base ${
                       activeTab === 'a-venir' 
                         ? 'text-[#e5004c] border-b-2 border-[#e5004c]' 
                         : 'text-[#035fa9] hover:text-[#e5004c] hover:border-b-2 hover:border-[#e5004c]'
@@ -553,7 +698,7 @@ export default function Home() {
                   </button>
                   <button
                     onClick={() => setActiveTab('annonces')}
-                    className={`font-medium pb-1 transition-colors ${
+                    className={`font-medium pb-1 transition-colors text-sm lg:text-base ${
                       activeTab === 'annonces' 
                         ? 'text-[#e5004c] border-b-2 border-[#e5004c]' 
                         : 'text-[#035fa9] hover:text-[#e5004c] hover:border-b-2 hover:border-[#e5004c]'
@@ -568,16 +713,16 @@ export default function Home() {
               </div>
               
               {/* Colonne 3 - Domaines d'activités */}
-              <div className="col-span-4">
-                <h3 className="text-2xl font-bold text-[#035fa9]">Domaines d'activités</h3>
+              <div className="lg:col-span-4">
+                <h3 className="text-xl lg:text-2xl font-bold text-[#035fa9]">Domaines d'activités</h3>
               </div>
             </div>
 
-            {/* Contenu en 3 colonnes */}
-            <div className="grid grid-cols-12 gap-8 mt-8">
+            {/* Contenu responsive */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mt-6 lg:mt-8">
               {/* Colonnes 1 et 2 - Content du panel actif */}
               <div 
-                className="col-span-8 grid grid-cols-2 gap-8"
+                className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-8"
                 role="tabpanel"
                 id={`panel-${activeTab}`}
                 aria-labelledby={`tab-${activeTab}`}
@@ -585,32 +730,32 @@ export default function Home() {
                 {/* Colonne 1 - Article principal */}
                 <div className="col-span-1">
                   <Link href={tabLinks[activeTab]} className="block">
-                    <div className="bg-[#e6f1f8] p-4 hover:shadow-lg transition-all duration-300 rounded">
-                      <div className="h-64 bg-gray-300 mb-6 relative overflow-hidden">
+                    <div className="bg-[#e6f1f8] p-3 lg:p-4 hover:shadow-lg transition-all duration-300 rounded">
+                      <div className="h-48 sm:h-56 lg:h-64 bg-gray-300 mb-4 lg:mb-6 relative overflow-hidden">
                         {/* Image placeholder grise comme dans l'image */}
                         <div className="absolute inset-0 bg-black/10 hover:bg-black/20 transition-colors duration-300"></div>
                       </div>
-                      <h3 className="text-xl font-bold text-[#035fa9] mb-2 hover:text-[#024a87] transition-colors duration-300">
+                      <h3 className="text-base sm:text-lg lg:text-xl font-bold text-[#035fa9] mb-2 hover:text-[#024a87] transition-colors duration-300 line-clamp-3">
                         {tabContents[activeTab].main.title}
                       </h3>
                       <div className="flex justify-between items-center">
-                        <p className="text-sm text-gray-600">{tabContents[activeTab].main.date}</p>
-                        <span className="text-[#00b7ff] text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">En savoir plus →</span>
+                        <p className="text-xs sm:text-sm text-gray-600">{tabContents[activeTab].main.date}</p>
+                        <span className="text-[#00b7ff] text-xs sm:text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">En savoir plus →</span>
                       </div>
                     </div>
                   </Link>
                 </div>
 
                 {/* Colonne 2 - Liste d'articles */}
-                <div className="col-span-1 space-y-4">
+                <div className="col-span-1 space-y-3 lg:space-y-4">
                   {tabContents[activeTab].list.map((item, index) => (
-                    <Link href={tabLinks[activeTab]} key={index} className="flex gap-4 group">
-                      <div className="w-24 h-16 bg-gray-300 flex-shrink-0 relative overflow-hidden">
+                    <Link href={tabLinks[activeTab]} key={index} className="flex gap-3 lg:gap-4 group">
+                      <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0 relative overflow-hidden">
                         {/* Image placeholder grise */}
                         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300"></div>
                       </div>
-                      <div className="flex-1">
-                        <h4 className="text-[#035fa9] font-bold mb-1 group-hover:text-[#024a87] transition-colors duration-300">
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-sm sm:text-base text-[#035fa9] font-bold mb-1 group-hover:text-[#024a87] transition-colors duration-300 line-clamp-2">
                           {item.title}
                         </h4>
                         <p className="text-xs text-gray-600">{item.date}</p>
@@ -618,10 +763,10 @@ export default function Home() {
                     </Link>
                   ))}
 
-                  <div className="pt-4 text-center">
+                  <div className="pt-3 lg:pt-4 text-center">
                     <Link 
                       href={tabLinks[activeTab]} 
-                      className="inline-block text-[#035fa9] font-medium border border-[#035fa9] rounded px-4 py-1 hover:bg-[#035fa9] hover:text-white transition-colors duration-300"
+                      className="inline-block text-[#035fa9] font-medium border border-[#035fa9] rounded px-3 lg:px-4 py-1 text-sm lg:text-base hover:bg-[#035fa9] hover:text-white transition-colors duration-300"
                     >
                       Voir tous les {activeTab === 'actualites' ? 'articles' : 
                                     activeTab === 'evenements' ? 'événements' : 
@@ -632,208 +777,47 @@ export default function Home() {
               </div>
 
               {/* Colonne 3 - Domaines d'activités */}
-              <div className="col-span-4">
+              <div className="lg:col-span-4">
                 <div className="divide-y divide-gray-200">
-                  <div className="py-3">
-                    <p className="text-sm text-gray-700">
+                  <div className="py-2 lg:py-3">
+                    <p className="text-xs sm:text-sm text-gray-700">
                       <strong>Infrastructures sanitaires</strong> : Financement des projets d'infrastructure, équipements médicaux, production locale des médicaments
                     </p>
                   </div>
-                  <div className="py-3">
-                    <p className="text-sm text-gray-700">
+                  <div className="py-2 lg:py-3">
+                    <p className="text-xs sm:text-sm text-gray-700">
                       <strong>Médicaments & pharmacie</strong> : Promotion de la production locale, médecine traditionnelle, approvisionnement en essentiels
                     </p>
                   </div>
-                  <div className="py-3">
-                    <p className="text-sm text-gray-700">
+                  <div className="py-2 lg:py-3">
+                    <p className="text-xs sm:text-sm text-gray-700">
                       <strong>Gouvernance en santé</strong> : Planification, normalisation, recherche, développement des ressources humaines
                     </p>
                   </div>
-                  <div className="py-3">
-                    <p className="text-sm text-gray-700">
+                  <div className="py-2 lg:py-3">
+                    <p className="text-xs sm:text-sm text-gray-700">
                       <strong>Financements innovants</strong> : Collecte et gestion des ressources via redevances minières, taxes de promotion
                     </p>
                   </div>
-                  <div className="py-3">
-                    <p className="text-sm text-gray-700">
+                  <div className="py-2 lg:py-3">
+                    <p className="text-xs sm:text-sm text-gray-700">
                       <strong>Subventionnement ESS</strong> : Réduction des coûts et amélioration de la qualité des soins
                     </p>
                   </div>
-                  <div className="py-3">
-                    <p className="text-sm text-gray-700">
+                  <div className="py-2 lg:py-3">
+                    <p className="text-xs sm:text-sm text-gray-700">
                       <strong>Collecte de sang</strong> : Formation des prestataires, sécurité transfusionnelle, campagnes mobiles
                     </p>
                   </div>
-                  <div className="py-3">
-                    <p className="text-sm text-gray-700">
+                  <div className="py-2 lg:py-3">
+                    <p className="text-xs sm:text-sm text-gray-700">
                       <strong>Transport médical</strong> : Système d'ambulances, évacuations sanitaires, urgences médicales
                     </p>
                   </div>
-                  <div className="pt-4">
-                    <a href="#" className="text-[#00b7ff] font-medium inline-block">
+                  <div className="pt-3 lg:pt-4">
+                    <a href="#" className="text-[#00b7ff] font-medium inline-block text-sm lg:text-base">
                       Voir plus
                     </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Nouvelle section avec 3 colonnes - Enrichie */}
-            <div className="grid grid-cols-12 gap-8 mt-16 pt-8 border-t border-gray-200">
-              {/* Colonne 1 - Directeur général */}
-              <div className="col-span-4">
-                <div className="flex items-center justify-between pb-2 border-b border-gray-200 mb-6">
-                  <h2 className="text-2xl font-bold text-[#035fa9]">Directeur général</h2>
-                  <a href="#" className="text-[#00b7ff] font-medium">Voir plus</a>
-                </div>
-                
-                {/* Grande image avec texte */}
-                <div className="relative">
-                  <div className="h-80 bg-gray-300 mb-6"></div>
-                  <div className="relative border-l-[6px] border-[#e5004c]">
-                    <div className="bg-[#035fa9] p-4 text-white">
-                      <p className="font-bold">
-                        MIKA NYEMBO Marius - "Renforcer le Système de Santé National à travers l'amélioration de l'offre des soins"
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Liste d'articles */}
-                <div className="mt-8 space-y-4">
-                  <div className="flex gap-4">
-                    <div className="w-24 h-16 bg-gray-300 flex-shrink-0"></div>
-                    <div className="flex-1">
-                      <h4 className="text-[#035fa9] font-bold mb-1">
-                        Présentation du bilan à mi-parcours du FPS
-                      </h4>
-                      <p className="text-xs text-gray-600">29 août 2024</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="w-24 h-16 bg-gray-300 flex-shrink-0"></div>
-                    <div className="flex-1">
-                      <h4 className="text-[#035fa9] font-bold mb-1">
-                        Vision 2034 : Vers une CSU effective en RDC
-                      </h4>
-                      <p className="text-xs text-gray-600">15 juin 2024</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="w-24 h-16 bg-gray-300 flex-shrink-0"></div>
-                    <div className="flex-1">
-                      <h4 className="text-[#035fa9] font-bold mb-1">
-                        Contact : dg@fps.cd
-                      </h4>
-                      <p className="text-xs text-gray-600">Direction Générale</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Colonne 2 - Réalisations concrètes */}
-              <div className="col-span-4">
-                <div className="flex items-center justify-between pb-2 border-b border-gray-200 mb-6">
-                  <h2 className="text-2xl font-bold text-[#035fa9]">Réalisations</h2>
-                  <a href="#" className="text-[#00b7ff] font-medium">Voir plus</a>
-                </div>
-                
-                {/* Grande image avec texte */}
-                <div className="relative">
-                  <div className="h-80 bg-gray-300 mb-6"></div>
-                  <div className="relative border-l-[6px] border-[#00B7FF]">
-                    <div className="bg-[#F9D008] p-4 text-white">
-                      <p className="font-bold">
-                        333 ESS • 7,2M USD • 1 491 transferts • 16 ambulances • 139 cadres formés
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Liste d'articles */}
-                <div className="mt-8 space-y-4">
-                  <div className="flex gap-4">
-                    <div className="w-24 h-16 bg-gray-300 flex-shrink-0"></div>
-                    <div className="flex-1">
-                      <h4 className="text-[#035fa9] font-bold mb-1">
-                        Financement estimé pour ambulances : 4,476,900 USD
-                      </h4>
-                      <p className="text-xs text-gray-600">En cours</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="w-24 h-16 bg-gray-300 flex-shrink-0"></div>
-                    <div className="flex-1">
-                      <h4 className="text-[#035fa9] font-bold mb-1">
-                        Banque de sang : 168 850 USD versés au CNTS
-                      </h4>
-                      <p className="text-xs text-gray-600">Réalisé</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="w-24 h-16 bg-gray-300 flex-shrink-0"></div>
-                    <div className="flex-1">
-                      <h4 className="text-[#035fa9] font-bold mb-1">
-                        Six contrats signés pour médicaments de 333 ESS
-                      </h4>
-                      <p className="text-xs text-gray-600">En livraison</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Colonne 3 - Sources de financement */}
-              <div className="col-span-4">
-                {/* Newsletter Section */}
-                <div className="mb-8">
-                  <h2 className="text-2xl font-bold text-[#035fa9] border-b pb-2 border-gray-200 mb-6">Newsletter</h2>
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">Email*</label>
-                      <input 
-                        type="email" 
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#035fa9] focus:border-transparent"
-                        placeholder="Votre adresse email"
-                      />
-                    </div>
-                    <button className="bg-[#e5004c] hover:bg-[#c0003a] text-white font-bold py-3 px-8 rounded transition-colors">
-                      S'abonner
-                    </button>
-                  </div>
-                </div>
-
-                {/* Fonds FPS Section */}
-                <div className="mb-8">
-                  <h2 className="text-2xl font-bold text-[#035fa9] border-b pb-2 border-gray-200 mb-6">Fonds FPS</h2>
-                  <div className="space-y-3">
-                    <div className="bg-[#8A9BAD] text-white p-4 rounded border-l-4 border-[#e5004c]">
-                      <span className="font-medium">Déposer une requête Fonds d'aide</span>
-                    </div>
-                    <div className="bg-[#8A9BAD] text-white p-4 rounded border-l-4 border-[#e5004c]">
-                      <span className="font-medium">Fonds pour la promotion de la santé, de la recherche et de la prévention</span>
-                    </div>
-                    <div className="bg-[#8A9BAD] text-white p-4 rounded border-l-4 border-[#e5004c]">
-                      <span className="font-medium">Déposer une requête Fonds pour la promotion de la santé</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Prix FPS Section */}
-                <div>
-                  <h2 className="text-2xl font-bold text-[#035fa9] border-b pb-2 border-gray-200 mb-6">Prix FPS</h2>
-                  <div className="space-y-3">
-                    <div className="bg-[#8A9BAD] text-white p-4 rounded border-l-4 border-[#e5004c]">
-                      <span className="font-medium">Les lauréats 2022</span>
-                    </div>
-                    <div className="bg-[#8A9BAD] text-white p-4 rounded border-l-4 border-[#e5004c]">
-                      <span className="font-medium">Formulaire d'inscription en ligne</span>
-                    </div>
-                    <div className="bg-[#8A9BAD] text-white p-4 rounded border-l-4 border-[#e5004c]">
-                      <span className="font-medium">Formulaire d'inscription (PDF)</span>
-                    </div>
-                    <div className="bg-[#8A9BAD] text-white p-4 rounded border-l-4 border-[#e5004c]">
-                      <span className="font-medium">Flyer Prix FPS (PDF)</span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -1309,6 +1293,167 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Nouvelle section avec 3 colonnes - Responsive */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mt-12 lg:mt-16 pt-6 lg:pt-8 border-t border-gray-200">
+          {/* Colonne 1 - Directeur général */}
+          <div className="order-1">
+            <div className="flex items-center justify-between pb-2 border-b border-gray-200 mb-4 lg:mb-6">
+              <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9]">Directeur général</h2>
+              <a href="#" className="text-[#00b7ff] font-medium text-sm lg:text-base">Voir plus</a>
+            </div>
+            
+            {/* Grande image avec texte */}
+            <div className="relative mb-6 lg:mb-0">
+              <div className="h-48 sm:h-64 lg:h-80 bg-gray-300 mb-4 lg:mb-6"></div>
+              <div className="relative border-l-[4px] lg:border-l-[6px] border-[#e5004c]">
+                <div className="bg-[#035fa9] p-3 lg:p-4 text-white">
+                  <p className="font-bold text-sm lg:text-base">
+                    MIKA NYEMBO Marius - "Renforcer le Système de Santé National à travers l'amélioration de l'offre des soins"
+                  </p>
+                </div>
+              </div>
+              
+              {/* Liste d'articles - Mobile */}
+              <div className="mt-4 lg:mt-8 space-y-3 lg:space-y-4">
+                <div className="flex gap-3 lg:gap-4">
+                  <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
+                      Présentation du bilan à mi-parcours du FPS
+                    </h4>
+                    <p className="text-xs text-gray-600">29 août 2024</p>
+                  </div>
+                </div>
+                <div className="flex gap-3 lg:gap-4">
+                  <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
+                      Vision 2034 : Vers une CSU effective en RDC
+                    </h4>
+                    <p className="text-xs text-gray-600">15 juin 2024</p>
+                  </div>
+                </div>
+                <div className="flex gap-3 lg:gap-4">
+                  <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
+                      Contact : dg@fps.cd
+                    </h4>
+                    <p className="text-xs text-gray-600">Direction Générale</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Colonne 2 - Réalisations concrètes */}
+          <div className="order-2">
+            <div className="flex items-center justify-between pb-2 border-b border-gray-200 mb-4 lg:mb-6">
+              <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9]">Réalisations</h2>
+              <a href="#" className="text-[#00b7ff] font-medium text-sm lg:text-base">Voir plus</a>
+            </div>
+            
+            {/* Grande image avec texte */}
+            <div className="relative mb-6 lg:mb-0">
+              <div className="h-48 sm:h-64 lg:h-80 bg-gray-300 mb-4 lg:mb-6"></div>
+              <div className="relative border-l-[4px] lg:border-l-[6px] border-[#00B7FF]">
+                <div className="bg-[#F9D008] p-3 lg:p-4 text-white">
+                  <p className="font-bold text-sm lg:text-base">
+                    333 ESS • 7,2M USD • 1 491 transferts • 16 ambulances • 139 cadres formés
+                  </p>
+                </div>
+              </div>
+              
+              {/* Liste d'articles */}
+              <div className="mt-4 lg:mt-8 space-y-3 lg:space-y-4">
+                <div className="flex gap-3 lg:gap-4">
+                  <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
+                      Financement estimé pour ambulances : 4,476,900 USD
+                    </h4>
+                    <p className="text-xs text-gray-600">En cours</p>
+                  </div>
+                </div>
+                <div className="flex gap-3 lg:gap-4">
+                  <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
+                      Banque de sang : 168 850 USD versés au CNTS
+                    </h4>
+                    <p className="text-xs text-gray-600">Réalisé</p>
+                  </div>
+                </div>
+                <div className="flex gap-3 lg:gap-4">
+                  <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
+                      Six contrats signés pour médicaments de 333 ESS
+                    </h4>
+                    <p className="text-xs text-gray-600">En livraison</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Colonne 3 - Newsletter et fonds */}
+          <div className="order-3 space-y-6 lg:space-y-8">
+            {/* Newsletter Section */}
+            <div>
+              <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9] border-b pb-2 border-gray-200 mb-4 lg:mb-6">Newsletter</h2>
+              <div className="space-y-3 lg:space-y-4">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email*</label>
+                  <input 
+                    type="email" 
+                    className="w-full px-3 lg:px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#035fa9] focus:border-transparent text-sm lg:text-base"
+                    placeholder="Votre adresse email"
+                  />
+                </div>
+                <button className="bg-[#e5004c] hover:bg-[#c0003a] text-white font-bold py-2 lg:py-3 px-6 lg:px-8 rounded transition-colors w-full lg:w-auto text-sm lg:text-base">
+                  S'abonner
+                </button>
+              </div>
+            </div>
+
+            {/* Fonds FPS Section */}
+            <div>
+              <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9] border-b pb-2 border-gray-200 mb-4 lg:mb-6">Fonds FPS</h2>
+              <div className="space-y-2 lg:space-y-3">
+                <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
+                  <span className="font-medium text-sm lg:text-base">Déposer une requête Fonds d'aide</span>
+                </div>
+                <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
+                  <span className="font-medium text-sm lg:text-base">Fonds pour la promotion de la santé, de la recherche et de la prévention</span>
+                </div>
+                <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
+                  <span className="font-medium text-sm lg:text-base">Déposer une requête Fonds pour la promotion de la santé</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Prix FPS Section */}
+            <div>
+              <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9] border-b pb-2 border-gray-200 mb-4 lg:mb-6">Prix FPS</h2>
+              <div className="space-y-2 lg:space-y-3">
+                <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
+                  <span className="font-medium text-sm lg:text-base">Les lauréats 2022</span>
+                </div>
+                <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
+                  <span className="font-medium text-sm lg:text-base">Formulaire d'inscription en ligne</span>
+                </div>
+                <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
+                  <span className="font-medium text-sm lg:text-base">Formulaire d'inscription (PDF)</span>
+                </div>
+                <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
+                  <span className="font-medium text-sm lg:text-base">Flyer Prix FPS (PDF)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
       
       {/* Footer */}
@@ -1426,7 +1571,7 @@ export default function Home() {
                     className="w-full px-4 py-2 bg-[#035fa9] border border-[#00b7ff] rounded text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#00b7ff]"
                   />
                 </div>
-                <button className="bg-[#e5004c] hover:bg-[#c0003a] text-white px-4 py-2 rounded transition-colors w-full">
+                <button className="bg-[#e5004c] hover:bg-[#c0003a] text-white font-bold py-3 px-8 rounded transition-colors w-full">
                   S'abonner
                 </button>
               </form>
