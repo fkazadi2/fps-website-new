@@ -28,3 +28,61 @@ body {
   color: var(--foreground);
   font-family: var(--font-roboto), sans-serif;
 }
+
+/* Classes utilitaires pour la responsivité */
+@layer utilities {
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  
+  /* Responsive text */
+  .text-responsive-sm {
+    font-size: 0.875rem;
+  }
+  
+  @media (min-width: 640px) {
+    .text-responsive-sm {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .text-responsive-sm {
+      font-size: 1.125rem;
+    }
+  }
+  
+  /* Container responsive avec padding adaptatif */
+  .container-responsive {
+    width: 100%;
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container-responsive {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-responsive {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}

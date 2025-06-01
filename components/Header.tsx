@@ -1,16 +1,22 @@
 'use client';
 
-import { ChevronDownIcon } from 'lucide-react';
+import { ChevronDownIcon, Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
   const toggleDropdown = (dropdown: string) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+    setActiveDropdown(null);
   };
 
   // Fermer le menu quand on clique ailleurs
@@ -18,6 +24,7 @@ export default function Header() {
     const handleClickOutside = (event: MouseEvent) => {
       if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
         setActiveDropdown(null);
+        setMobileMenuOpen(false);
       }
     };
 
@@ -30,26 +37,26 @@ export default function Header() {
       {/* Header principal bleu */}
       <div className="bg-[#035fa9]">
         <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo et nom */}
-            <Link href="/" className="flex items-center space-x-4">
+            <Link href="/" className="flex items-center space-x-2 lg:space-x-4 flex-shrink-0">
               <Image 
                 src="/Logo_01.png" 
                 alt="Logo FPS" 
-                width={80}
-                height={80}
-                className="object-contain"
+                width={60}
+                height={60}
+                className="lg:w-20 lg:h-20 object-contain"
               />
-              <div>
-                <h1 className="text-white font-bold text-xl leading-tight tracking-[-0.02em]">
+              <div className="hidden sm:block">
+                <h1 className="text-white font-bold text-sm lg:text-xl leading-tight tracking-[-0.02em]">
                   Fonds de promotion<br />
                   pour la Santé
                 </h1>
               </div>
             </Link>
 
-            {/* Navigation principale */}
-            <nav className="flex items-center space-x-4">
+            {/* Navigation principale - Desktop */}
+            <nav className="hidden lg:flex items-center space-x-4">
               <div className="relative">
                 <button className="flex items-center space-x-1 ring-3 ring-inset ring-white text-white px-4 py-2 rounded text-sm font-bold hover:bg-white hover:text-[#035fa9] transition-colors">
                   <span>Découvrez le FPS</span>
@@ -114,12 +121,47 @@ export default function Header() {
                 Contact
               </Link>
             </nav>
+
+            {/* Bouton menu mobile */}
+            <button 
+              onClick={toggleMobileMenu}
+              className="lg:hidden text-white p-2"
+              aria-label="Toggle mobile menu"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Barre de navigation secondaire blanche avec stroke bleu ciel */}
-      <div className="bg-white border-b-2 border-[#00b7ff] shadow-md">
+      {/* Menu mobile */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-white border-b shadow-lg">
+          <div className="px-4 py-4 space-y-4">
+            <Link href="/actualites" className="block text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>
+              Actualités
+            </Link>
+            <Link href="/evenements" className="block text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>
+              Événements
+            </Link>
+            <Link href="/a-venir" className="block text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>
+              À venir
+            </Link>
+            <Link href="/annonces" className="block text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>
+              Annonces
+            </Link>
+            <Link href="/photos-videos" className="block text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>
+              Photos et vidéos
+            </Link>
+            <Link href="/contact" className="block bg-[#e1090e] text-white px-4 py-2 rounded font-bold text-center" onClick={() => setMobileMenuOpen(false)}>
+              Contact
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Barre de navigation secondaire blanche avec stroke bleu ciel - Hidden sur mobile */}
+      <div className="hidden lg:block bg-white border-b-2 border-[#00b7ff] shadow-md">
         <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center justify-end space-x-8 h-12">
             <div className="relative">

@@ -842,22 +842,22 @@ export default function Home() {
         </div>
 
         {/* Section Rouge - "Pourquoi un FPS?" avec infos économiques */}
-        <div className="bg-[#E1090E] py-16">
-          <div className="max-w-[1800px] mx-auto px-8">
-            <div className="flex flex-wrap">
+        <div className="bg-[#E1090E] py-8 lg:py-16">
+          <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row gap-8">
               {/* Texte côté gauche */}
-              <div className="w-full md:w-1/2 flex flex-col justify-center items-start space-y-4 pr-0 md:pr-8">
-                <div className="bg-white px-8 py-4">
-                  <h2 className="text-5xl font-bold text-[#E1090E]">Pourquoi un Fonds</h2>
+              <div className="w-full lg:w-1/2 flex flex-col justify-center items-start space-y-4">
+                <div className="bg-white px-4 sm:px-6 lg:px-8 py-3 lg:py-4 rounded">
+                  <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#E1090E]">Pourquoi un Fonds</h2>
                 </div>
-                <div className="bg-white px-8 py-4">
-                  <h2 className="text-5xl font-bold text-[#E1090E]">de Promotion</h2>
+                <div className="bg-white px-4 sm:px-6 lg:px-8 py-3 lg:py-4 rounded">
+                  <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#E1090E]">de Promotion</h2>
                 </div>
-                <div className="bg-white px-8 py-4">
-                  <h2 className="text-5xl font-bold text-[#E1090E]">de la Santé ?</h2>
+                <div className="bg-white px-4 sm:px-6 lg:px-8 py-3 lg:py-4 rounded">
+                  <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#E1090E]">de la Santé ?</h2>
                 </div>
-                <div className="bg-white px-8 py-4 max-w-lg">
-                  <p className="text-lg text-[#E1090E]">
+                <div className="bg-white px-4 sm:px-6 lg:px-8 py-3 lg:py-4 rounded max-w-lg">
+                  <p className="text-sm sm:text-base lg:text-lg text-[#E1090E]">
                     <strong>43,1% des dépenses de santé</strong> en RDC proviennent directement 
                     des ménages. Le FPS mobilise des financements innovants pour réduire 
                     cette charge et garantir l'accès aux soins de qualité pour tous.
@@ -866,28 +866,28 @@ export default function Home() {
               </div>
               
               {/* Graphique côté droit */}
-              <div className="w-full md:w-1/2 pl-0 md:pl-8 mb-8 md:mb-0">
-                <div className="bg-white p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-[#E1090E] mb-4">Sources de financement de la santé en RDC</h3>
+              <div className="w-full lg:w-1/2">
+                <div className="bg-white p-4 sm:p-6 rounded-lg">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#E1090E] mb-4">Sources de financement de la santé en RDC</h3>
                   <div className="space-y-3">
                     <div className="flex items-center">
-                      <div className="w-4 h-4 bg-green-500 mr-3"></div>
+                      <div className="w-4 h-4 bg-green-500 mr-3 flex-shrink-0"></div>
                       <span className="text-sm">Ménages : 43,1%</span>
                     </div>
                     <div className="flex items-center">
-                      <div className="w-4 h-4 bg-teal-500 mr-3"></div>
+                      <div className="w-4 h-4 bg-teal-500 mr-3 flex-shrink-0"></div>
                       <span className="text-sm">Reste du Monde : 37,9%</span>
                     </div>
                     <div className="flex items-center">
-                      <div className="w-4 h-4 bg-blue-500 mr-3"></div>
+                      <div className="w-4 h-4 bg-blue-500 mr-3 flex-shrink-0"></div>
                       <span className="text-sm">État : 15,5%</span>
                     </div>
                     <div className="flex items-center">
-                      <div className="w-4 h-4 bg-red-500 mr-3"></div>
+                      <div className="w-4 h-4 bg-red-500 mr-3 flex-shrink-0"></div>
                       <span className="text-sm">Entreprises : 3,2%</span>
                     </div>
                     <div className="flex items-center">
-                      <div className="w-4 h-4 bg-yellow-500 mr-3"></div>
+                      <div className="w-4 h-4 bg-yellow-500 mr-3 flex-shrink-0"></div>
                       <span className="text-sm">ONG : 0,2%</span>
                     </div>
                   </div>
@@ -901,116 +901,104 @@ export default function Home() {
         </div>
 
         {/* Section Média */}
-        <div className="bg-gray-100 py-12">
-          <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 bg-white py-8 border-t-[3px] border-[#00b7ff]">
-            <div className="grid grid-cols-12 gap-8">
+        <div className="bg-gray-100 py-8 lg:py-12">
+          <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 bg-white py-6 lg:py-8 border-t-[3px] border-[#00b7ff]">
+            
+            {/* En-tête responsive */}
+            <div className="mb-6">
+              <h2 className="text-xl lg:text-2xl font-bold text-[#035fa9] border-b pb-2 border-gray-200 mb-4">Média</h2>
               
-              {/* En-tête et navigation */}
-              <div className="col-span-4">
-                <h2 className="text-2xl font-bold text-[#035fa9] border-b pb-2 border-gray-200">Média</h2>
-              </div>
-              
-              <div className="col-span-5 flex items-end">
-                <div className="flex border-b border-gray-200 w-full" role="tablist" aria-label="Types de médias">
-                  <button 
-                    onClick={() => setActiveMediaTab('video')}
-                    className={`mr-8 pb-2 font-medium transition-colors ${
-                      activeMediaTab === 'video' 
-                        ? 'border-b-2 border-[#E1090E] text-[#E1090E]' 
-                        : 'text-[#035fa9] hover:text-[#E1090E]'
-                    }`}
-                    role="tab"
-                    aria-selected={activeMediaTab === 'video'}
-                    aria-controls="panel-video"
-                  >
-                    Vidéo
-                  </button>
-                  <button 
-                    onClick={() => setActiveMediaTab('audio')}
-                    className={`mr-8 pb-2 font-medium transition-colors ${
-                      activeMediaTab === 'audio' 
-                        ? 'border-b-2 border-[#E1090E] text-[#E1090E]' 
-                        : 'text-[#035fa9] hover:text-[#E1090E]'
-                    }`}
-                    role="tab"
-                    aria-selected={activeMediaTab === 'audio'}
-                    aria-controls="panel-audio"
-                  >
-                    Audio
-                  </button>
-                  <button 
-                    onClick={() => setActiveMediaTab('photos')}
-                    className={`pb-2 font-medium transition-colors ${
-                      activeMediaTab === 'photos' 
-                        ? 'border-b-2 border-[#E1090E] text-[#E1090E]' 
-                        : 'text-[#035fa9] hover:text-[#E1090E]'
-                    }`}
-                    role="tab"
-                    aria-selected={activeMediaTab === 'photos'}
-                    aria-controls="panel-photos"
-                  >
-                    Photos
-                  </button>
+              {/* Navigation des onglets */}
+              <div className="flex flex-wrap gap-4 lg:gap-8 border-b border-gray-200" role="tablist" aria-label="Types de médias">
+                <button 
+                  onClick={() => setActiveMediaTab('video')}
+                  className={`pb-2 font-medium transition-colors ${
+                    activeMediaTab === 'video' 
+                      ? 'border-b-2 border-[#E1090E] text-[#E1090E]' 
+                      : 'text-[#035fa9] hover:text-[#E1090E]'
+                  }`}
+                  role="tab"
+                  aria-selected={activeMediaTab === 'video'}
+                  aria-controls="panel-video"
+                >
+                  Vidéo
+                </button>
+                <button 
+                  onClick={() => setActiveMediaTab('audio')}
+                  className={`pb-2 font-medium transition-colors ${
+                    activeMediaTab === 'audio' 
+                      ? 'border-b-2 border-[#E1090E] text-[#E1090E]' 
+                      : 'text-[#035fa9] hover:text-[#E1090E]'
+                  }`}
+                  role="tab"
+                  aria-selected={activeMediaTab === 'audio'}
+                  aria-controls="panel-audio"
+                >
+                  Audio
+                </button>
+                <button 
+                  onClick={() => setActiveMediaTab('photos')}
+                  className={`pb-2 font-medium transition-colors ${
+                    activeMediaTab === 'photos' 
+                      ? 'border-b-2 border-[#E1090E] text-[#E1090E]' 
+                      : 'text-[#035fa9] hover:text-[#E1090E]'
+                  }`}
+                  role="tab"
+                  aria-selected={activeMediaTab === 'photos'}
+                  aria-controls="panel-photos"
+                >
+                  Photos
+                </button>
+                
+                <div className="ml-auto hidden sm:block">
+                  <Link href={mediaLinks[activeMediaTab]} className="text-[#00b7ff] font-medium hover:underline transition-colors">Voir plus</Link>
                 </div>
               </div>
+            </div>
               
-              <div className="col-span-3 flex items-end justify-end border-b border-gray-200 pb-2">
-                <Link href={mediaLinks[activeMediaTab]} className="text-[#00b7ff] font-medium hover:underline transition-colors">Voir plus</Link>
+            {/* Contenu principal responsive */}
+            <div 
+              className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8"
+              role="tabpanel"
+              id={`panel-${activeMediaTab}`}
+              aria-labelledby={`tab-${activeMediaTab}`}
+            >
+              {/* Article principal */}
+              <div className="lg:col-span-1">
+                <Link href={mediaLinks[activeMediaTab]} className="block group">
+                  <div className="bg-[#e6f1f8] p-4 pb-6 hover:shadow-lg transition-all duration-300 rounded">
+                    <div className="h-48 lg:h-64 bg-gray-300 mb-4 relative overflow-hidden rounded">
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300"></div>
+                    </div>
+                    <h3 className="text-lg lg:text-xl font-bold text-[#035fa9] mb-2 group-hover:text-[#024a87] transition-colors duration-300 line-clamp-3">
+                      {mediaContents[activeMediaTab].main.title}
+                    </h3>
+                    <p className="text-sm text-gray-600">{mediaContents[activeMediaTab].main.date}</p>
+                  </div>
+                </Link>
               </div>
               
-              {/* Contenu principal - Grande photo à gauche + liste à droite */}
-              <div 
-                className="col-span-9 grid grid-cols-9 gap-8 mt-8"
-                role="tabpanel"
-                id={`panel-${activeMediaTab}`}
-                aria-labelledby={`tab-${activeMediaTab}`}
-              >
-                <div className="col-span-4">
-                  <Link href={mediaLinks[activeMediaTab]} className="block group">
-                    <div className="bg-[#e6f1f8] p-4 pb-8 hover:shadow-lg transition-all duration-300 rounded">
-                      <div className="h-80 bg-gray-300 mb-6 relative overflow-hidden">
-                        {/* Image placeholder */}
-                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300"></div>
-                      </div>
-                      <h3 className="text-2xl font-bold text-[#035fa9] mb-2 group-hover:text-[#024a87] transition-colors duration-300">
-                        {mediaContents[activeMediaTab].main.title}
-                      </h3>
-                      <p className="text-sm text-gray-600">{mediaContents[activeMediaTab].main.date}</p>
+              {/* Liste des articles */}
+              <div className="lg:col-span-2 space-y-4 lg:space-y-6">
+                {mediaContents[activeMediaTab].list.slice(0, 4).map((item, index) => (
+                  <Link href={mediaLinks[activeMediaTab]} key={index} className="flex gap-4 group">
+                    <div className="w-24 sm:w-32 h-16 sm:h-20 bg-gray-300 flex-shrink-0 relative overflow-hidden rounded">
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300"></div>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-sm sm:text-base text-[#035fa9] font-bold mb-1 group-hover:text-[#024a87] transition-colors duration-300 line-clamp-2">
+                        {item.title}
+                      </h4>
+                      <p className="text-xs text-gray-600">{item.date}</p>
                     </div>
                   </Link>
-                </div>
-                
-                <div className="col-span-5 space-y-6">
-                  {mediaContents[activeMediaTab].list.map((item, index) => (
-                    <Link href={mediaLinks[activeMediaTab]} key={index} className="flex gap-4 group">
-                      <div className="w-32 h-20 bg-gray-300 flex-shrink-0 relative overflow-hidden">
-                        {/* Image placeholder */}
-                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300"></div>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-[#035fa9] font-bold mb-1 group-hover:text-[#024a87] transition-colors duration-300">
-                          {item.title}
-                        </h4>
-                        <p className="text-xs text-gray-600">{item.date}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
+                ))}
               </div>
-              
-              <div className="col-span-3 mt-8">
-                <div className="h-full bg-gray-300 rounded overflow-hidden relative">
-                  {/* Bannière ou publicité */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#035fa9]/70 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 w-full p-4">
-                    <p className="text-white font-bold text-lg mb-2">Centre de médias FPS</p>
-                    <p className="text-white text-sm mb-4">Découvrez toutes nos ressources multimédia</p>
-                    <Link href="/photos-videos" className="inline-block bg-white text-[#035fa9] px-4 py-2 rounded font-medium hover:bg-gray-100 transition-colors">
-                      Explorer
-                    </Link>
-                  </div>
-                </div>
-              </div>
+            </div>
+            
+            {/* Lien "Voir plus" pour mobile */}
+            <div className="mt-6 text-center sm:hidden">
+              <Link href={mediaLinks[activeMediaTab]} className="inline-block text-[#00b7ff] font-medium hover:underline transition-colors">Voir plus</Link>
             </div>
           </div>
         </div>
