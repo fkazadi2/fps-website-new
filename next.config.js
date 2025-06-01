@@ -9,9 +9,6 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   swcMinify: true,
-  experimental: {
-    optimizeCss: true
-  }
 };
 
 module.exports = nextConfig; 
