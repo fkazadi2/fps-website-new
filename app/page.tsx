@@ -1,6 +1,8 @@
 'use client';
 
 import Header from '@/components/Header';
+import MapDRC from '@/components/MapDRC';
+import PieChart2034 from '@/components/PieChart2034';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -251,7 +253,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       <Header />
       
-      {/* Hero Section avec 3 sections colorées - Responsive Mobile */}
+      {/* Hero Section avec 3 sections colorées - Responsive Mobile/Tablette/Desktop */}
       <main className="w-full">
         {/* Version Desktop */}
         <div className="hidden lg:flex h-[80vh]">
@@ -375,8 +377,95 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Version Tablette */}
+        <div className="hidden md:flex lg:hidden h-[70vh]">
+          {/* Section 1 - Rose Tablette */}
+          <div className="flex-1 relative overflow-hidden">
+            <Image
+              src="/hero/1.jpg"
+              alt="Hero image 1"
+              fill
+              className="object-cover z-0"
+            />
+            <div 
+              className="absolute inset-0 z-10"
+              style={{
+                background: `linear-gradient(to top, #E5004C 0%, rgba(229, 0, 76, 0) 80%)`
+              }}
+            ></div>
+            <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+              <div className="bg-white px-4 py-3 mb-3 rounded">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#E5004C]">
+                  Un pays, un cap, une santé pour tous
+                </h2>
+              </div>
+              <div className="bg-white px-4 py-2 rounded">
+                <p className="text-sm md:text-base font-bold text-[#E5004C]">
+                  Engagement du Président Félix Antoine Tshisekedi Tshilombo
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 2 - Jaune Tablette */}
+          <div className="flex-1 relative overflow-hidden">
+            <Image
+              src="/hero/2.jpg"
+              alt="Hero image 2"
+              fill
+              className="object-cover z-0"
+            />
+            <div 
+              className="absolute inset-0 z-10"
+              style={{
+                background: `linear-gradient(to top, #f9b233 0%, rgba(249, 178, 51, 0) 80%)`
+              }}
+            ></div>
+            <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+              <div className="bg-white px-4 py-3 mb-3 rounded">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#f9b233]">
+                  Pourquoi un Fonds de Promotion de la Santé ?
+                </h2>
+              </div>
+              <div className="bg-white px-4 py-2 rounded">
+                <p className="text-sm md:text-base font-bold text-[#f9b233]">
+                  Bras financier du MSPHPS et maçon de la CSU
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 3 - Vert Tablette */}
+          <div className="flex-1 relative overflow-hidden">
+            <Image
+              src="/hero/3.jpg"
+              alt="Hero image 3"
+              fill
+              className="object-cover z-0"
+            />
+            <div 
+              className="absolute inset-0 z-10"
+              style={{
+                background: `linear-gradient(to top, #00a19a 0%, rgba(0, 161, 154, 0) 80%)`
+              }}
+            ></div>
+            <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+              <div className="bg-white px-4 py-3 mb-3 rounded">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#00a19a]">
+                  Nos leviers, vos soins
+                </h2>
+              </div>
+              <div className="bg-white px-4 py-2 rounded">
+                <p className="text-sm md:text-base font-bold text-[#00a19a]">
+                  Financement, infrastructures, médicaments, gouvernance, innovation et qualité
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Version Mobile */}
-        <div className="lg:hidden">
+        <div className="md:hidden">
           {/* Section 1 - Rose Mobile */}
           <div className="relative h-[60vh] sm:h-[70vh] overflow-hidden">
             <Image
@@ -584,8 +673,75 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Version tablette des 3 colonnes */}
+        <div className="hidden md:block lg:hidden">
+          <div className="grid grid-cols-1 gap-0">
+            {/* Section 1 Tablette - Cadre légal */}
+            <div className="bg-[#F9B233] p-6 md:p-8">
+              <div className="flex items-start gap-6">
+                <div className="w-20 h-20 bg-white bg-opacity-20 rounded-lg flex-shrink-0"></div>
+                <div className="flex-1">
+                  <h3 className="text-[#003B7C] text-lg font-medium mb-2">Cadre légal</h3>
+                  <h2 className="text-white text-2xl md:text-3xl font-bold mb-4">Bases légales</h2>
+                  <p className="text-white text-base md:text-lg font-medium mb-6 leading-relaxed">
+                    Créé par la Loi n°08/009 du 07 juillet 2008, modifiée par la Loi n°18/035 
+                    du 13 décembre 2018. Organisé par le Décret n°22/15 du 09 avril 2022.
+                  </p>
+                  <div className="text-right">
+                    <button className="bg-white text-[#F9B233] font-bold px-6 py-3 rounded">
+                      En savoir plus
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Section 2 Tablette - 6 Missions */}
+            <div className="bg-[#FF4343] p-6 md:p-8">
+              <div className="flex items-start gap-6">
+                <div className="w-20 h-20 bg-white bg-opacity-20 rounded-lg flex-shrink-0"></div>
+                <div className="flex-1">
+                  <h3 className="text-[#F9B233] text-lg font-medium mb-2">6 Missions principales</h3>
+                  <h2 className="text-white text-2xl md:text-3xl font-bold mb-4">Nos missions</h2>
+                  <p className="text-white text-base md:text-lg font-medium mb-6 leading-relaxed">
+                    Infrastructures sanitaires • Médicaments & produits pharmaceutiques • 
+                    Gouvernance du secteur • Financements innovants • Subventionnement ESS • 
+                    Collecte et gestion du sang de qualité
+                  </p>
+                  <div className="text-right">
+                    <button className="bg-white text-[#FF4343] font-bold px-6 py-3 rounded">
+                      En savoir plus
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Section 3 Tablette - Vision CSU */}
+            <div className="bg-[#003B7C] p-6 md:p-8">
+              <div className="flex items-start gap-6">
+                <div className="w-20 h-20 bg-white bg-opacity-20 rounded-lg flex-shrink-0"></div>
+                <div className="flex-1">
+                  <h3 className="text-[#FF4343] text-lg font-medium mb-2">Vision CSU</h3>
+                  <h2 className="text-white text-2xl md:text-3xl font-bold mb-4">Notre vision</h2>
+                  <p className="text-white text-base md:text-lg font-medium mb-6 leading-relaxed">
+                    Réaliser la Couverture Santé Universelle : "chacun ce qu'il peut, 
+                    chacun ce dont il a besoin". Réduire la charge des ménages de 43,1% 
+                    actuellement à 24% d'ici 2034.
+                  </p>
+                  <div className="text-right">
+                    <button className="bg-white text-[#003B7C] font-bold px-6 py-3 rounded">
+                      En savoir plus
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Version mobile des 3 colonnes */}
-        <div className="lg:hidden space-y-0">
+        <div className="md:hidden space-y-0">
           {/* Section 1 Mobile - Cadre légal */}
           <div className="bg-[#F9B233] p-4 sm:p-6">
             <div className="border-l-4 border-white pl-4">
@@ -825,6 +981,172 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Section avec 3 colonnes - Directeur général, Réalisations, Newsletter - Responsive */}
+        <div className="bg-gray-100 py-12">
+          <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 bg-white py-8 border-t-[3px] border-[#00b7ff]">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+              {/* Colonne 1 - Directeur général */}
+              <div className="order-1">
+                <div className="flex items-center justify-between pb-2 border-b border-gray-200 mb-4 lg:mb-6">
+                  <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9]">Directeur général</h2>
+                  <a href="#" className="text-[#00b7ff] font-medium text-sm lg:text-base">Voir plus</a>
+                </div>
+                
+                {/* Grande image avec texte */}
+                <div className="relative mb-6 lg:mb-0">
+                  <div className="h-48 sm:h-64 lg:h-80 bg-gray-300 mb-4 lg:mb-6"></div>
+                  <div className="relative border-l-[4px] lg:border-l-[6px] border-[#e5004c]">
+                    <div className="bg-[#035fa9] p-3 lg:p-4 text-white">
+                      <p className="font-bold text-sm lg:text-base">
+                        MIKA NYEMBO Marius - "Renforcer le Système de Santé National à travers l'amélioration de l'offre des soins"
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Liste d'articles */}
+                  <div className="mt-4 lg:mt-8 space-y-3 lg:space-y-4">
+                    <div className="flex gap-3 lg:gap-4">
+                      <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
+                          Présentation du bilan à mi-parcours du FPS
+                        </h4>
+                        <p className="text-xs text-gray-600">29 août 2024</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-3 lg:gap-4">
+                      <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
+                          Vision 2034 : Vers une CSU effective en RDC
+                        </h4>
+                        <p className="text-xs text-gray-600">15 juin 2024</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-3 lg:gap-4">
+                      <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
+                          Contact : dg@fps.cd
+                        </h4>
+                        <p className="text-xs text-gray-600">Direction Générale</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Colonne 2 - Réalisations concrètes */}
+              <div className="order-2">
+                <div className="flex items-center justify-between pb-2 border-b border-gray-200 mb-4 lg:mb-6">
+                  <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9]">Réalisations</h2>
+                  <a href="#" className="text-[#00b7ff] font-medium text-sm lg:text-base">Voir plus</a>
+                </div>
+                
+                {/* Grande image avec texte */}
+                <div className="relative mb-6 lg:mb-0">
+                  <div className="h-48 sm:h-64 lg:h-80 bg-gray-300 mb-4 lg:mb-6"></div>
+                  <div className="relative border-l-[4px] lg:border-l-[6px] border-[#00B7FF]">
+                    <div className="bg-[#F9D008] p-3 lg:p-4 text-white">
+                      <p className="font-bold text-sm lg:text-base">
+                        333 ESS • 7,2M USD • 1 491 transferts • 16 ambulances • 139 cadres formés
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Liste d'articles */}
+                  <div className="mt-4 lg:mt-8 space-y-3 lg:space-y-4">
+                    <div className="flex gap-3 lg:gap-4">
+                      <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
+                          Financement estimé pour ambulances : 4,476,900 USD
+                        </h4>
+                        <p className="text-xs text-gray-600">En cours</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-3 lg:gap-4">
+                      <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
+                          Banque de sang : 168 850 USD versés au CNTS
+                        </h4>
+                        <p className="text-xs text-gray-600">Réalisé</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-3 lg:gap-4">
+                      <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
+                          Six contrats signés pour médicaments de 333 ESS
+                        </h4>
+                        <p className="text-xs text-gray-600">En livraison</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Colonne 3 - Newsletter et fonds */}
+              <div className="order-3 space-y-6 lg:space-y-8">
+                {/* Newsletter Section */}
+                <div>
+                  <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9] border-b pb-2 border-gray-200 mb-4 lg:mb-6">Newsletter</h2>
+                  <div className="space-y-3 lg:space-y-4">
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Email*</label>
+                      <input 
+                        type="email" 
+                        className="w-full px-3 lg:px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#035fa9] focus:border-transparent text-sm lg:text-base"
+                        placeholder="Votre adresse email"
+                      />
+                    </div>
+                    <button className="bg-[#e5004c] hover:bg-[#c0003a] text-white font-bold py-2 lg:py-3 px-6 lg:px-8 rounded transition-colors w-full lg:w-auto text-sm lg:text-base">
+                      S'abonner
+                    </button>
+                  </div>
+                </div>
+
+                {/* Fonds FPS Section */}
+                <div>
+                  <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9] border-b pb-2 border-gray-200 mb-4 lg:mb-6">Fonds FPS</h2>
+                  <div className="space-y-2 lg:space-y-3">
+                    <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
+                      <span className="font-medium text-sm lg:text-base">Déposer une requête Fonds d'aide</span>
+                    </div>
+                    <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
+                      <span className="font-medium text-sm lg:text-base">Fonds pour la promotion de la santé, de la recherche et de la prévention</span>
+                    </div>
+                    <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
+                      <span className="font-medium text-sm lg:text-base">Déposer une requête Fonds pour la promotion de la santé</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Prix FPS Section */}
+                <div>
+                  <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9] border-b pb-2 border-gray-200 mb-4 lg:mb-6">Prix FPS</h2>
+                  <div className="space-y-2 lg:space-y-3">
+                    <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
+                      <span className="font-medium text-sm lg:text-base">Les lauréats 2022</span>
+                    </div>
+                    <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
+                      <span className="font-medium text-sm lg:text-base">Formulaire d'inscription en ligne</span>
+                    </div>
+                    <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
+                      <span className="font-medium text-sm lg:text-base">Formulaire d'inscription (PDF)</span>
+                    </div>
+                    <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
+                      <span className="font-medium text-sm lg:text-base">Flyer Prix FPS (PDF)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
         {/* Section Rouge - "Pourquoi un FPS?" avec infos économiques */}
         <div className="bg-[#E1090E] py-8 lg:py-16">
           <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -832,16 +1154,16 @@ export default function Home() {
               {/* Texte côté gauche */}
               <div className="w-full lg:w-1/2 flex flex-col justify-center items-start space-y-4">
                 <div className="bg-white px-4 sm:px-6 lg:px-8 py-3 lg:py-4 rounded">
-                  <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#E1090E]">Pourquoi un Fonds</h2>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-[#E1090E]">Pourquoi un Fonds</h2>
                 </div>
                 <div className="bg-white px-4 sm:px-6 lg:px-8 py-3 lg:py-4 rounded">
-                  <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#E1090E]">de Promotion</h2>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-[#E1090E]">de Promotion</h2>
                 </div>
                 <div className="bg-white px-4 sm:px-6 lg:px-8 py-3 lg:py-4 rounded">
-                  <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#E1090E]">de la Santé ?</h2>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-[#E1090E]">de la Santé ?</h2>
                 </div>
                 <div className="bg-white px-4 sm:px-6 lg:px-8 py-3 lg:py-4 rounded max-w-lg">
-                  <p className="text-sm sm:text-base lg:text-lg text-[#E1090E]">
+                  <p className="text-sm sm:text-base md:text-lg lg:text-lg text-[#E1090E]">
                     <strong>43,1% des dépenses de santé</strong> en RDC proviennent directement 
                     des ménages. Le FPS mobilise des financements innovants pour réduire 
                     cette charge et garantir l'accès aux soins de qualité pour tous.
@@ -856,26 +1178,26 @@ export default function Home() {
                   <div className="space-y-3">
                     <div className="flex items-center">
                       <div className="w-4 h-4 bg-green-500 mr-3 flex-shrink-0"></div>
-                      <span className="text-sm">Ménages : 43,1%</span>
+                      <span className="text-sm md:text-base text-gray-800 font-medium">Ménages : 43,1%</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-4 h-4 bg-teal-500 mr-3 flex-shrink-0"></div>
-                      <span className="text-sm">Reste du Monde : 37,9%</span>
+                      <span className="text-sm md:text-base text-gray-800 font-medium">Reste du Monde : 37,9%</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-4 h-4 bg-blue-500 mr-3 flex-shrink-0"></div>
-                      <span className="text-sm">État : 15,5%</span>
+                      <span className="text-sm md:text-base text-gray-800 font-medium">État : 15,5%</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-4 h-4 bg-red-500 mr-3 flex-shrink-0"></div>
-                      <span className="text-sm">Entreprises : 3,2%</span>
+                      <span className="text-sm md:text-base text-gray-800 font-medium">Entreprises : 3,2%</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-4 h-4 bg-yellow-500 mr-3 flex-shrink-0"></div>
-                      <span className="text-sm">ONG : 0,2%</span>
+                      <span className="text-sm md:text-base text-gray-800 font-medium">ONG : 0,2%</span>
                     </div>
                   </div>
-                  <p className="text-xs text-gray-600 mt-4">
+                  <p className="text-xs text-gray-800 mt-4 font-medium">
                     Source: Commission Financement de la Santé, 2023
                   </p>
                 </div>
@@ -896,7 +1218,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-4 lg:gap-8 border-b border-gray-200" role="tablist" aria-label="Types de médias">
                 <button 
                   onClick={() => setActiveMediaTab('video')}
-                  className={`pb-2 font-medium transition-colors ${
+                  className={`pb-2 font-medium transition-colors text-sm md:text-base ${
                     activeMediaTab === 'video' 
                       ? 'border-b-2 border-[#E1090E] text-[#E1090E]' 
                       : 'text-[#035fa9] hover:text-[#E1090E]'
@@ -909,7 +1231,7 @@ export default function Home() {
                 </button>
                 <button 
                   onClick={() => setActiveMediaTab('audio')}
-                  className={`pb-2 font-medium transition-colors ${
+                  className={`pb-2 font-medium transition-colors text-sm md:text-base ${
                     activeMediaTab === 'audio' 
                       ? 'border-b-2 border-[#E1090E] text-[#E1090E]' 
                       : 'text-[#035fa9] hover:text-[#E1090E]'
@@ -922,7 +1244,7 @@ export default function Home() {
                 </button>
                 <button 
                   onClick={() => setActiveMediaTab('photos')}
-                  className={`pb-2 font-medium transition-colors ${
+                  className={`pb-2 font-medium transition-colors text-sm md:text-base ${
                     activeMediaTab === 'photos' 
                       ? 'border-b-2 border-[#E1090E] text-[#E1090E]' 
                       : 'text-[#035fa9] hover:text-[#E1090E]'
@@ -935,23 +1257,23 @@ export default function Home() {
                 </button>
                 
                 <div className="ml-auto hidden sm:block">
-                  <Link href={mediaLinks[activeMediaTab]} className="text-[#00b7ff] font-medium hover:underline transition-colors">Voir plus</Link>
+                  <Link href={mediaLinks[activeMediaTab]} className="text-[#00b7ff] font-medium hover:underline transition-colors text-sm md:text-base">Voir plus</Link>
                 </div>
               </div>
             </div>
               
             {/* Contenu principal responsive */}
             <div 
-              className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8"
+              className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 lg:gap-8"
               role="tabpanel"
               id={`panel-${activeMediaTab}`}
               aria-labelledby={`tab-${activeMediaTab}`}
             >
               {/* Article principal */}
-              <div className="lg:col-span-1">
+              <div className="md:col-span-1">
                 <Link href={mediaLinks[activeMediaTab]} className="block group">
                   <div className="bg-[#e6f1f8] p-4 pb-6 hover:shadow-lg transition-all duration-300 rounded">
-                    <div className="h-48 lg:h-64 bg-gray-300 mb-4 relative overflow-hidden rounded">
+                    <div className="h-48 md:h-56 lg:h-64 bg-gray-300 mb-4 relative overflow-hidden rounded">
                       <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300"></div>
                     </div>
                     <h3 className="text-lg lg:text-xl font-bold text-[#035fa9] mb-2 group-hover:text-[#024a87] transition-colors duration-300 line-clamp-3">
@@ -963,7 +1285,7 @@ export default function Home() {
               </div>
               
               {/* Liste des articles */}
-              <div className="lg:col-span-2 space-y-4 lg:space-y-6">
+              <div className="md:col-span-2 space-y-4 lg:space-y-6">
                 {mediaContents[activeMediaTab].list.slice(0, 4).map((item, index) => (
                   <Link href={mediaLinks[activeMediaTab]} key={index} className="flex gap-4 group">
                     <div className="w-24 sm:w-32 h-16 sm:h-20 bg-gray-300 flex-shrink-0 relative overflow-hidden rounded">
@@ -988,24 +1310,24 @@ export default function Home() {
         </div>
 
         {/* Section Vidéo avec fond bleu ciel */}
-        <div className="bg-[#00B7FF] py-16">
-          <div className="max-w-[1800px] mx-auto px-8">
-            <div className="flex flex-wrap">
+        <div className="bg-[#00B7FF] py-12 md:py-16">
+          <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Vidéo/Image côté gauche */}
-              <div className="w-full md:w-1/2 pr-0 md:pr-8 mb-8 md:mb-0">
-                <div className="bg-gray-300 h-80 md:h-96"></div>
+              <div className="order-2 md:order-1">
+                <div className="bg-gray-300 h-64 md:h-80 lg:h-96 rounded"></div>
               </div>
               
               {/* Texte côté droit */}
-              <div className="w-full md:w-1/2 flex flex-col justify-center items-start space-y-4">
-                <div className="bg-white px-8 py-4">
-                  <h2 className="text-5xl font-bold text-[#00B7FF]">CSU et croissance</h2>
+              <div className="order-1 md:order-2 flex flex-col justify-center items-start space-y-4">
+                <div className="bg-white px-4 sm:px-6 lg:px-8 py-3 lg:py-4 rounded">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#00B7FF]">CSU et croissance</h2>
                 </div>
-                <div className="bg-white px-8 py-4">
-                  <h2 className="text-5xl font-bold text-[#00B7FF]">économique</h2>
+                <div className="bg-white px-4 sm:px-6 lg:px-8 py-3 lg:py-4 rounded">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#00B7FF]">économique</h2>
                 </div>
-                <div className="bg-white px-8 py-4 max-w-lg">
-                  <p className="text-lg text-[#00B7FF]">
+                <div className="bg-white px-4 sm:px-6 lg:px-8 py-3 lg:py-4 rounded max-w-lg">
+                  <p className="text-sm sm:text-base md:text-lg lg:text-lg text-[#00B7FF]">
                     Création d'emplois via travaux publics, croissance de l'industrie 
                     pharmaceutique, utilisation accrue des services financiers, 
                     mutualisation des ressources et meilleure productivité nationale 
@@ -1021,22 +1343,22 @@ export default function Home() {
         <div className="bg-gray-100 py-12">
           <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 bg-white py-8 border-t-[3px] border-[#00b7ff]">
             <div className="flex items-center justify-between pb-2 border-b border-gray-200 mb-8">
-              <h2 className="text-4xl font-bold text-[#035fa9]">Témoignages</h2>
-              <a href="#" className="text-[#00b7ff] font-medium">Voir plus</a>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#035fa9]">Témoignages</h2>
+              <a href="#" className="text-[#00b7ff] font-medium text-sm md:text-base">Voir plus</a>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
               {/* Témoignage 1 */}
               <div className="bg-[#e6f1f8] rounded-lg overflow-hidden">
                 <div className="h-64 bg-gray-300 relative">
                   {/* Image placeholder - à remplacer par une vraie image */}
                   <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-[#035fa9] to-transparent">
-                    <p className="text-white font-bold">Dr. Mukwege Jean</p>
-                    <p className="text-white text-sm">Hôpital Général de Référence, Kinshasa</p>
+                    <p className="text-white font-bold text-sm md:text-base">Dr. Mukwege Jean</p>
+                    <p className="text-white text-xs md:text-sm">Hôpital Général de Référence, Kinshasa</p>
                   </div>
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-700 italic mb-4">
+                <div className="p-4 md:p-6">
+                  <p className="text-gray-700 italic mb-4 text-sm md:text-base">
                     "Grâce aux équipements fournis par le FPS, nous avons pu réduire de 30% le temps d'attente pour les soins d'urgence et améliorer considérablement la qualité des services."
                   </p>
                   <div className="flex justify-end">
@@ -1050,12 +1372,12 @@ export default function Home() {
                 <div className="h-64 bg-gray-300 relative">
                   {/* Image placeholder - à remplacer par une vraie image */}
                   <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-[#f9b233] to-transparent">
-                    <p className="text-white font-bold">Infirmière Kabedi Marie</p>
-                    <p className="text-white text-sm">Centre de Santé, Lubumbashi</p>
+                    <p className="text-white font-bold text-sm md:text-base">Infirmière Kabedi Marie</p>
+                    <p className="text-white text-xs md:text-sm">Centre de Santé, Lubumbashi</p>
                   </div>
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-700 italic mb-4">
+                <div className="p-4 md:p-6">
+                  <p className="text-gray-700 italic mb-4 text-sm md:text-base">
                     "L'approvisionnement régulier en médicaments nous permet maintenant de traiter tous nos patients sans rupture de stock. C'est une révolution pour notre centre de santé."
                   </p>
                   <div className="flex justify-end">
@@ -1064,8 +1386,8 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Témoignage 3 */}
-              <div className="bg-[#e5f7f7] rounded-lg overflow-hidden">
+              {/* Témoignage 3 - Hidden sur md, visible sur lg+ */}
+              <div className="bg-[#e5f7f7] rounded-lg overflow-hidden md:col-span-2 lg:col-span-1">
                 <div className="h-64 bg-gray-300 relative">
                   {/* Image placeholder - à remplacer par une vraie image */}
                   <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-[#00a19a] to-transparent">
@@ -1098,61 +1420,60 @@ export default function Home() {
               {/* Statistiques à gauche */}
               <div className="space-y-6">
                 <div className="bg-[#e6f1f8] p-6 rounded-lg border-l-[6px] border-[#00b7ff]">
-                  <p className="text-gray-600 text-sm">Établissements de santé soutenus</p>
+                  <p className="text-gray-800 text-sm font-medium">Établissements de santé soutenus</p>
                   <p className="text-[#035fa9] text-4xl font-bold">333</p>
-                  <p className="text-gray-600 text-sm mt-2">ESS à travers tout le pays</p>
+                  <p className="text-gray-800 text-sm mt-2 font-medium">ESS à travers tout le pays</p>
                 </div>
                 
                 <div className="bg-[#fff5e5] p-6 rounded-lg border-l-[6px] border-[#f9b233]">
-                  <p className="text-gray-600 text-sm">Montant investi en médicaments</p>
+                  <p className="text-gray-800 text-sm font-medium">Montant investi en médicaments</p>
                   <p className="text-[#f9b233] text-4xl font-bold">7,2M USD</p>
-                  <p className="text-gray-600 text-sm mt-2">dont 3,14M déjà engagés</p>
+                  <p className="text-gray-800 text-sm mt-2 font-medium">dont 3,14M déjà engagés</p>
                 </div>
                 
+                
                 <div className="bg-[#f9e5ea] p-6 rounded-lg border-l-[6px] border-[#e5004c]">
-                  <p className="text-gray-600 text-sm">Patients transportés en ambulance</p>
+                  <p className="text-gray-800 text-sm font-medium">Patients transportés en ambulance</p>
                   <p className="text-[#e5004c] text-4xl font-bold">1 491</p>
-                  <p className="text-gray-600 text-sm mt-2">via 16 ambulances à Kinshasa</p>
+                  <p className="text-gray-800 text-sm mt-2 font-medium">via 16 ambulances à Kinshasa</p>
                 </div>
                 
                 <div className="bg-[#e5f7f7] p-6 rounded-lg border-l-[6px] border-[#00a19a]">
-                  <p className="text-gray-600 text-sm">Formation et collecte de sang</p>
+                  <p className="text-gray-800 text-sm font-medium">Formation et collecte de sang</p>
                   <p className="text-[#00a19a] text-4xl font-bold">139</p>
-                  <p className="text-gray-600 text-sm mt-2">cadres formés • 155 campagnes</p>
+                  <p className="text-gray-800 text-sm mt-2 font-medium">cadres formés • 155 campagnes</p>
                 </div>
 
                 <div className="bg-[#f3e5f5] p-6 rounded-lg border-l-[6px] border-[#8A9BAD]">
-                  <p className="text-gray-600 text-sm">Équipements médicaux</p>
+                  <p className="text-gray-800 text-sm font-medium">Équipements médicaux</p>
                   <p className="text-[#8A9BAD] text-4xl font-bold">1,8M USD</p>
-                  <p className="text-gray-600 text-sm mt-2">d'équipements livrés</p>
+                  <p className="text-gray-800 text-sm mt-2 font-medium">d'équipements livrés</p>
                 </div>
               </div>
               
               {/* Carte au centre et à droite */}
-              <div className="lg:col-span-2 bg-gray-100 rounded-lg overflow-hidden relative h-[500px]">
-                {/* Image placeholder pour la carte de la RDC */}
-                <div className="absolute inset-0 bg-gray-300 flex items-center justify-center">
-                  <p className="text-gray-600 font-medium">Carte de la RDC avec les 333 points d'intervention</p>
-                </div>
+              <div className="lg:col-span-2 bg-gray-100 rounded-lg overflow-hidden relative h-[600px]">
+                {/* Carte Mapbox interactive */}
+                <MapDRC className="w-full h-full" />
                 
                 {/* Légende en bas */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white p-4">
+                <div className="absolute bottom-4 left-0 right-0 bg-white p-4 mx-4 rounded-lg shadow-lg">
                   <div className="flex flex-wrap gap-4">
                     <div className="flex items-center">
                       <div className="w-4 h-4 rounded-full bg-[#00b7ff] mr-2"></div>
-                      <span className="text-sm">Médicaments (333 ESS)</span>
+                      <span className="text-sm text-gray-800 font-medium">Médicaments (333 ESS)</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-4 h-4 rounded-full bg-[#e5004c] mr-2"></div>
-                      <span className="text-sm">Équipements (1,8M USD)</span>
+                      <span className="text-sm text-gray-800 font-medium">Équipements (1,8M USD)</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-4 h-4 rounded-full bg-[#f9b233] mr-2"></div>
-                      <span className="text-sm">Ambulances (16 à Kinshasa)</span>
+                      <span className="text-sm text-gray-800 font-medium">Ambulances (16 à Kinshasa)</span>
                     </div>
                     <div className="flex items-center">
                       <div className="w-4 h-4 rounded-full bg-[#00a19a] mr-2"></div>
-                      <span className="text-sm">Collecte sang (139 formés)</span>
+                      <span className="text-sm text-gray-800 font-medium">Collecte sang (139 formés)</span>
                     </div>
                   </div>
                 </div>
@@ -1214,44 +1535,37 @@ export default function Home() {
               <div>
                 <h3 className="text-2xl font-bold text-[#035fa9] mb-6">Répartition du financement de la santé en 2034</h3>
                 <div className="bg-gray-100 p-6 rounded-lg">
-                  {/* Simulation d'un graphique en camembert */}
-                  <div className="w-64 h-64 mx-auto bg-gray-300 rounded-full relative">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <p className="text-lg font-bold text-gray-600">Vision 2034</p>
-                        <p className="text-sm text-gray-500">Financement CSU</p>
-                      </div>
-                    </div>
-                  </div>
+                  {/* Graphique en camembert interactif */}
+                  <PieChart2034 />
                   
                   <div className="mt-6 space-y-3">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <div className="w-4 h-4 bg-blue-600 mr-3"></div>
-                        <span className="text-sm">État</span>
+                        <div className="w-4 h-4 bg-[#035fa9] mr-3"></div>
+                        <span className="text-sm text-gray-800 font-medium">État</span>
                       </div>
-                      <span className="text-sm font-bold">34%</span>
+                      <span className="text-sm font-bold text-gray-800">34%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <div className="w-4 h-4 bg-orange-500 mr-3"></div>
-                        <span className="text-sm">Partenaires PTF</span>
+                        <div className="w-4 h-4 bg-[#f9b233] mr-3"></div>
+                        <span className="text-sm text-gray-800 font-medium">Partenaires PTF</span>
                       </div>
-                      <span className="text-sm font-bold">42%</span>
+                      <span className="text-sm font-bold text-gray-800">42%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <div className="w-4 h-4 bg-green-500 mr-3"></div>
-                        <span className="text-sm">Ménages</span>
+                        <div className="w-4 h-4 bg-[#e5004c] mr-3"></div>
+                        <span className="text-sm text-gray-800 font-medium">Ménages</span>
                       </div>
-                      <span className="text-sm font-bold">24%</span>
+                      <span className="text-sm font-bold text-gray-800">24%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <div className="w-4 h-4 bg-yellow-500 mr-3"></div>
-                        <span className="text-sm">CSU & TPS</span>
+                        <div className="w-4 h-4 bg-[#00a19a] mr-3"></div>
+                        <span className="text-sm text-gray-800 font-medium">CSU & TPS</span>
                       </div>
-                      <span className="text-sm font-bold">12%</span>
+                      <span className="text-sm font-bold text-gray-800">12%</span>
                     </div>
                   </div>
                 </div>
@@ -1288,167 +1602,6 @@ export default function Home() {
                       Activation complète des mécanismes de financement innovants et des formations sanitaires
                     </p>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Nouvelle section avec 3 colonnes - Responsive */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mt-12 lg:mt-16 pt-6 lg:pt-8 border-t border-gray-200">
-          {/* Colonne 1 - Directeur général */}
-          <div className="order-1">
-            <div className="flex items-center justify-between pb-2 border-b border-gray-200 mb-4 lg:mb-6">
-              <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9]">Directeur général</h2>
-              <a href="#" className="text-[#00b7ff] font-medium text-sm lg:text-base">Voir plus</a>
-            </div>
-            
-            {/* Grande image avec texte */}
-            <div className="relative mb-6 lg:mb-0">
-              <div className="h-48 sm:h-64 lg:h-80 bg-gray-300 mb-4 lg:mb-6"></div>
-              <div className="relative border-l-[4px] lg:border-l-[6px] border-[#e5004c]">
-                <div className="bg-[#035fa9] p-3 lg:p-4 text-white">
-                  <p className="font-bold text-sm lg:text-base">
-                    MIKA NYEMBO Marius - "Renforcer le Système de Santé National à travers l'amélioration de l'offre des soins"
-                  </p>
-                </div>
-              </div>
-              
-              {/* Liste d'articles - Mobile */}
-              <div className="mt-4 lg:mt-8 space-y-3 lg:space-y-4">
-                <div className="flex gap-3 lg:gap-4">
-                  <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
-                      Présentation du bilan à mi-parcours du FPS
-                    </h4>
-                    <p className="text-xs text-gray-600">29 août 2024</p>
-                  </div>
-                </div>
-                <div className="flex gap-3 lg:gap-4">
-                  <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
-                      Vision 2034 : Vers une CSU effective en RDC
-                    </h4>
-                    <p className="text-xs text-gray-600">15 juin 2024</p>
-                  </div>
-                </div>
-                <div className="flex gap-3 lg:gap-4">
-                  <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
-                      Contact : dg@fps.cd
-                    </h4>
-                    <p className="text-xs text-gray-600">Direction Générale</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Colonne 2 - Réalisations concrètes */}
-          <div className="order-2">
-            <div className="flex items-center justify-between pb-2 border-b border-gray-200 mb-4 lg:mb-6">
-              <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9]">Réalisations</h2>
-              <a href="#" className="text-[#00b7ff] font-medium text-sm lg:text-base">Voir plus</a>
-            </div>
-            
-            {/* Grande image avec texte */}
-            <div className="relative mb-6 lg:mb-0">
-              <div className="h-48 sm:h-64 lg:h-80 bg-gray-300 mb-4 lg:mb-6"></div>
-              <div className="relative border-l-[4px] lg:border-l-[6px] border-[#00B7FF]">
-                <div className="bg-[#F9D008] p-3 lg:p-4 text-white">
-                  <p className="font-bold text-sm lg:text-base">
-                    333 ESS • 7,2M USD • 1 491 transferts • 16 ambulances • 139 cadres formés
-                  </p>
-                </div>
-              </div>
-              
-              {/* Liste d'articles */}
-              <div className="mt-4 lg:mt-8 space-y-3 lg:space-y-4">
-                <div className="flex gap-3 lg:gap-4">
-                  <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
-                      Financement estimé pour ambulances : 4,476,900 USD
-                    </h4>
-                    <p className="text-xs text-gray-600">En cours</p>
-                  </div>
-                </div>
-                <div className="flex gap-3 lg:gap-4">
-                  <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
-                      Banque de sang : 168 850 USD versés au CNTS
-                    </h4>
-                    <p className="text-xs text-gray-600">Réalisé</p>
-                  </div>
-                </div>
-                <div className="flex gap-3 lg:gap-4">
-                  <div className="w-20 sm:w-24 h-14 sm:h-16 bg-gray-300 flex-shrink-0"></div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-[#035fa9] font-bold mb-1 text-sm lg:text-base line-clamp-2">
-                      Six contrats signés pour médicaments de 333 ESS
-                    </h4>
-                    <p className="text-xs text-gray-600">En livraison</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Colonne 3 - Newsletter et fonds */}
-          <div className="order-3 space-y-6 lg:space-y-8">
-            {/* Newsletter Section */}
-            <div>
-              <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9] border-b pb-2 border-gray-200 mb-4 lg:mb-6">Newsletter</h2>
-              <div className="space-y-3 lg:space-y-4">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email*</label>
-                  <input 
-                    type="email" 
-                    className="w-full px-3 lg:px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#035fa9] focus:border-transparent text-sm lg:text-base"
-                    placeholder="Votre adresse email"
-                  />
-                </div>
-                <button className="bg-[#e5004c] hover:bg-[#c0003a] text-white font-bold py-2 lg:py-3 px-6 lg:px-8 rounded transition-colors w-full lg:w-auto text-sm lg:text-base">
-                  S'abonner
-                </button>
-              </div>
-            </div>
-
-            {/* Fonds FPS Section */}
-            <div>
-              <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9] border-b pb-2 border-gray-200 mb-4 lg:mb-6">Fonds FPS</h2>
-              <div className="space-y-2 lg:space-y-3">
-                <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
-                  <span className="font-medium text-sm lg:text-base">Déposer une requête Fonds d'aide</span>
-                </div>
-                <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
-                  <span className="font-medium text-sm lg:text-base">Fonds pour la promotion de la santé, de la recherche et de la prévention</span>
-                </div>
-                <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
-                  <span className="font-medium text-sm lg:text-base">Déposer une requête Fonds pour la promotion de la santé</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Prix FPS Section */}
-            <div>
-              <h2 className="text-lg lg:text-2xl font-bold text-[#035fa9] border-b pb-2 border-gray-200 mb-4 lg:mb-6">Prix FPS</h2>
-              <div className="space-y-2 lg:space-y-3">
-                <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
-                  <span className="font-medium text-sm lg:text-base">Les lauréats 2022</span>
-                </div>
-                <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
-                  <span className="font-medium text-sm lg:text-base">Formulaire d'inscription en ligne</span>
-                </div>
-                <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
-                  <span className="font-medium text-sm lg:text-base">Formulaire d'inscription (PDF)</span>
-                </div>
-                <div className="bg-[#8A9BAD] text-white p-3 lg:p-4 rounded border-l-4 border-[#e5004c]">
-                  <span className="font-medium text-sm lg:text-base">Flyer Prix FPS (PDF)</span>
                 </div>
               </div>
             </div>

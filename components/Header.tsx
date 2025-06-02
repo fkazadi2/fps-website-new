@@ -48,7 +48,7 @@ export default function Header() {
                 className="lg:w-20 lg:h-20 object-contain"
               />
               <div className="hidden sm:block">
-                <h1 className="text-white font-bold text-sm lg:text-xl leading-tight tracking-[-0.02em]">
+                <h1 className="text-white font-bold text-sm md:text-base lg:text-xl leading-tight tracking-[-0.02em]">
                   Fonds de promotion<br />
                   pour la Santé
                 </h1>
@@ -122,10 +122,28 @@ export default function Header() {
               </Link>
             </nav>
 
+            {/* Navigation pour tablette */}
+            <nav className="hidden md:flex lg:hidden items-center space-x-3">
+              <button 
+                type="button"
+                onClick={() => toggleDropdown('presse')}
+                className="flex items-center space-x-1 ring-2 ring-inset ring-white text-white px-3 py-2 rounded text-sm font-bold hover:bg-white hover:text-[#035fa9] transition-colors"
+              >
+                <span>Centre de presse</span>
+                <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${
+                  activeDropdown === 'presse' ? 'rotate-180' : ''
+                }`} />
+              </button>
+              
+              <Link href="/contact" className="bg-[#e1090e] text-white px-3 py-2 rounded text-sm font-bold hover:bg-red-700 transition-colors">
+                Contact
+              </Link>
+            </nav>
+
             {/* Bouton menu mobile */}
             <button 
               onClick={toggleMobileMenu}
-              className="lg:hidden text-white p-2"
+              className="md:hidden text-white p-2"
               aria-label="Toggle mobile menu"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -136,7 +154,7 @@ export default function Header() {
 
       {/* Menu mobile */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b shadow-lg">
+        <div className="md:hidden bg-white border-b shadow-lg">
           <div className="px-4 py-4 space-y-4">
             <Link href="/actualites" className="block text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>
               Actualités
@@ -160,7 +178,7 @@ export default function Header() {
         </div>
       )}
 
-      {/* Barre de navigation secondaire blanche avec stroke bleu ciel - Hidden sur mobile */}
+      {/* Barre de navigation secondaire blanche avec stroke bleu ciel - Hidden sur mobile et tablette */}
       <div className="hidden lg:block bg-white border-b-2 border-[#00b7ff] shadow-md">
         <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center justify-end space-x-8 h-12">
