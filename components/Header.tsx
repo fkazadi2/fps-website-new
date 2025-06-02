@@ -1,6 +1,6 @@
 'use client';
 
-import { ChevronDownIcon, Menu, X } from 'lucide-react';
+import { ChevronDownIcon, Menu, X, ChevronRightIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
@@ -8,6 +8,7 @@ import { useState, useEffect, useRef } from 'react';
 export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileActiveSection, setMobileActiveSection] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
 
   const toggleDropdown = (dropdown: string) => {
@@ -17,6 +18,11 @@ export default function Header() {
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
     setActiveDropdown(null);
+    setMobileActiveSection(null);
+  };
+
+  const toggleMobileSection = (section: string) => {
+    setMobileActiveSection(mobileActiveSection === section ? null : section);
   };
 
   // Fermer le menu quand on clique ailleurs
@@ -25,6 +31,7 @@ export default function Header() {
       if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
         setActiveDropdown(null);
         setMobileMenuOpen(false);
+        setMobileActiveSection(null);
       }
     };
 
@@ -126,14 +133,57 @@ export default function Header() {
             <nav className="hidden md:flex lg:hidden items-center space-x-3">
               <button 
                 type="button"
-                onClick={() => toggleDropdown('presse')}
+                onClick={() => toggleMobileMenu()}
                 className="flex items-center space-x-1 ring-2 ring-inset ring-white text-white px-3 py-2 rounded text-sm font-bold hover:bg-white hover:text-[#035fa9] transition-colors"
               >
-                <span>Centre de presse</span>
-                <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${
-                  activeDropdown === 'presse' ? 'rotate-180' : ''
-                }`} />
+                <span>Menu</span>
+                <Menu className="h-4 w-4" />
               </button>
+              
+              <div className="relative">
+                <button 
+                  type="button"
+                  onClick={() => toggleDropdown('presse')}
+                  className="flex items-center space-x-1 ring-2 ring-inset ring-white text-white px-3 py-2 rounded text-sm font-bold hover:bg-white hover:text-[#035fa9] transition-colors"
+                >
+                  <span>Centre de presse</span>
+                  <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${
+                    activeDropdown === 'presse' ? 'rotate-180' : ''
+                  }`} />
+                </button>
+                
+                {/* Sous-menu Centre de presse pour tablette */}
+                {activeDropdown === 'presse' && (
+                  <div className="absolute top-full right-0 w-[280px] md:w-[320px] bg-white shadow-xl border border-gray-200 rounded-lg mt-2 z-50">
+                    <div className="p-3 md:p-4">
+                      <div className="space-y-3 md:space-y-4">
+                        <div>
+                          <h4 className="text-sm font-bold text-[#035fa9] mb-2 md:mb-3">Centre de presse</h4>
+                          <p className="text-xs text-gray-600 mb-3 md:mb-4">Actualités et ressources FPS</p>
+                        </div>
+                        
+                        <div>
+                          <h5 className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Informations</h5>
+                          <ul className="space-y-1 md:space-y-2">
+                            <li><Link href="/actualites" className="text-gray-700 hover:text-[#035fa9] text-sm block py-1 hover:bg-gray-50 rounded px-2 -mx-2 transition-colors">Actualités</Link></li>
+                            <li><Link href="/evenements" className="text-gray-700 hover:text-[#035fa9] text-sm block py-1 hover:bg-gray-50 rounded px-2 -mx-2 transition-colors">Événements</Link></li>
+                            <li><Link href="/a-venir" className="text-gray-700 hover:text-[#035fa9] text-sm block py-1 hover:bg-gray-50 rounded px-2 -mx-2 transition-colors">À venir</Link></li>
+                            <li><Link href="/annonces" className="text-gray-700 hover:text-[#035fa9] text-sm block py-1 hover:bg-gray-50 rounded px-2 -mx-2 transition-colors">Annonces</Link></li>
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h5 className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Ressources</h5>
+                          <ul className="space-y-1 md:space-y-2">
+                            <li><Link href="/photos-videos" className="text-gray-700 hover:text-[#035fa9] text-sm block py-1 hover:bg-gray-50 rounded px-2 -mx-2 transition-colors">Photos et vidéos</Link></li>
+                            <li><Link href="/avant-apres" className="text-gray-700 hover:text-[#035fa9] text-sm block py-1 hover:bg-gray-50 rounded px-2 -mx-2 transition-colors">Avant/Après</Link></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
               
               <Link href="/contact" className="bg-[#e1090e] text-white px-3 py-2 rounded text-sm font-bold hover:bg-red-700 transition-colors">
                 Contact
@@ -152,28 +202,145 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Menu mobile */}
+      {/* Menu mobile et tablette amélioré */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b shadow-lg">
-          <div className="px-4 py-4 space-y-4">
-            <Link href="/actualites" className="block text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>
-              Actualités
-            </Link>
-            <Link href="/evenements" className="block text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>
-              Événements
-            </Link>
-            <Link href="/a-venir" className="block text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>
-              À venir
-            </Link>
-            <Link href="/annonces" className="block text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>
-              Annonces
-            </Link>
-            <Link href="/photos-videos" className="block text-gray-700 font-medium" onClick={() => setMobileMenuOpen(false)}>
-              Photos et vidéos
-            </Link>
-            <Link href="/contact" className="block bg-[#e1090e] text-white px-4 py-2 rounded font-bold text-center" onClick={() => setMobileMenuOpen(false)}>
-              Contact
-            </Link>
+        <div className="lg:hidden bg-white border-b shadow-lg max-h-[80vh] overflow-y-auto">
+          <div className="px-4 py-4 space-y-2">
+            
+            {/* Section Notre Raison d'Être */}
+            <div className="border-b border-gray-100 pb-2">
+              <button 
+                onClick={() => toggleMobileSection('mission')}
+                className="flex items-center justify-between w-full text-left py-2 text-gray-900 font-semibold"
+              >
+                <span>Notre Raison d'Être</span>
+                <ChevronRightIcon className={`h-4 w-4 transition-transform duration-200 ${
+                  mobileActiveSection === 'mission' ? 'rotate-90' : ''
+                }`} />
+              </button>
+              {mobileActiveSection === 'mission' && (
+                <div className="pl-4 pt-2 space-y-2">
+                  <Link href="/notre-vision" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Notre vision</Link>
+                  <Link href="/notre-mission" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Notre mission</Link>
+                  <Link href="/notre-raison-detre" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>À propos du FPS</Link>
+                  <Link href="/couverture-sante-universelle" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Couverture Santé Universelle</Link>
+                  <Link href="/etat-des-lieux" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>État des lieux</Link>
+                  <Link href="/cadre-legal" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Cadre légal</Link>
+                </div>
+              )}
+            </div>
+
+            {/* Section Agir pour la santé */}
+            <div className="border-b border-gray-100 pb-2">
+              <button 
+                onClick={() => toggleMobileSection('action')}
+                className="flex items-center justify-between w-full text-left py-2 text-gray-900 font-semibold"
+              >
+                <span>Agir pour la santé</span>
+                <ChevronRightIcon className={`h-4 w-4 transition-transform duration-200 ${
+                  mobileActiveSection === 'action' ? 'rotate-90' : ''
+                }`} />
+              </button>
+              {mobileActiveSection === 'action' && (
+                <div className="pl-4 pt-2 space-y-2">
+                  <Link href="/agir-pour-la-sante" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Vue d'ensemble</Link>
+                  <Link href="/service-ambulance" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Service d'ambulance</Link>
+                  <Link href="/transport-patients" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Transport de patients</Link>
+                  <Link href="/urgences-medicales" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Urgences médicales</Link>
+                  <Link href="/approvisionnement" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Approvisionnement</Link>
+                  <Link href="/medicaments-essentiels" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Médicaments essentiels</Link>
+                  <Link href="/equipements-medicaux" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Équipements médicaux</Link>
+                  <Link href="/collecte-sang" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Collecte de sang</Link>
+                </div>
+              )}
+            </div>
+
+            {/* Section Impact & Réalisations */}
+            <div className="border-b border-gray-100 pb-2">
+              <button 
+                onClick={() => toggleMobileSection('impact')}
+                className="flex items-center justify-between w-full text-left py-2 text-gray-900 font-semibold"
+              >
+                <span>Impact & Réalisations</span>
+                <ChevronRightIcon className={`h-4 w-4 transition-transform duration-200 ${
+                  mobileActiveSection === 'impact' ? 'rotate-90' : ''
+                }`} />
+              </button>
+              {mobileActiveSection === 'impact' && (
+                <div className="pl-4 pt-2 space-y-2">
+                  <Link href="/impact-realisations" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Bilan à mi-parcours</Link>
+                  <Link href="/impact-chiffres" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Impact en chiffres</Link>
+                  <Link href="/photos-videos" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Photos et vidéos</Link>
+                  <Link href="/avant-apres" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Avant/Après</Link>
+                </div>
+              )}
+            </div>
+
+            {/* Section Financement de la santé */}
+            <div className="border-b border-gray-100 pb-2">
+              <button 
+                onClick={() => toggleMobileSection('financing')}
+                className="flex items-center justify-between w-full text-left py-2 text-gray-900 font-semibold"
+              >
+                <span>Financement de la santé</span>
+                <ChevronRightIcon className={`h-4 w-4 transition-transform duration-200 ${
+                  mobileActiveSection === 'financing' ? 'rotate-90' : ''
+                }`} />
+              </button>
+              {mobileActiveSection === 'financing' && (
+                <div className="pl-4 pt-2 space-y-2">
+                  <Link href="/sources-financement" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Sources de financement</Link>
+                  <Link href="/financement-sante" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Mécanismes innovants</Link>
+                </div>
+              )}
+            </div>
+
+            {/* Section Recherche et rapports */}
+            <div className="border-b border-gray-100 pb-2">
+              <button 
+                onClick={() => toggleMobileSection('research')}
+                className="flex items-center justify-between w-full text-left py-2 text-gray-900 font-semibold"
+              >
+                <span>Recherche et rapports</span>
+                <ChevronRightIcon className={`h-4 w-4 transition-transform duration-200 ${
+                  mobileActiveSection === 'research' ? 'rotate-90' : ''
+                }`} />
+              </button>
+              {mobileActiveSection === 'research' && (
+                <div className="pl-4 pt-2 space-y-2">
+                  <Link href="/recherche-rapports" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Études et recherches</Link>
+                  <Link href="/recherche-rapports" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Rapports d'activité</Link>
+                </div>
+              )}
+            </div>
+
+            {/* Section Centre de presse */}
+            <div className="border-b border-gray-100 pb-2">
+              <button 
+                onClick={() => toggleMobileSection('presse')}
+                className="flex items-center justify-between w-full text-left py-2 text-gray-900 font-semibold"
+              >
+                <span>Centre de presse</span>
+                <ChevronRightIcon className={`h-4 w-4 transition-transform duration-200 ${
+                  mobileActiveSection === 'presse' ? 'rotate-90' : ''
+                }`} />
+              </button>
+              {mobileActiveSection === 'presse' && (
+                <div className="pl-4 pt-2 space-y-2">
+                  <Link href="/actualites" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Actualités</Link>
+                  <Link href="/evenements" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Événements</Link>
+                  <Link href="/a-venir" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>À venir</Link>
+                  <Link href="/annonces" className="block text-gray-600 py-1" onClick={() => setMobileMenuOpen(false)}>Annonces</Link>
+                </div>
+              )}
+            </div>
+
+            {/* Contact */}
+            <div className="pt-2">
+              <Link href="/contact" className="block bg-[#e1090e] text-white px-4 py-3 rounded font-bold text-center" onClick={() => setMobileMenuOpen(false)}>
+                Contact
+              </Link>
+            </div>
           </div>
         </div>
       )}
