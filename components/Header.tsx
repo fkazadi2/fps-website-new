@@ -50,9 +50,9 @@ export default function Header() {
               <div className="hidden sm:block">
                 <h1 className="text-white font-bold text-sm md:text-base lg:text-xl leading-tight tracking-[-0.02em]">
                   Fonds de promotion<br />
-                  pour la Santé
-                </h1>
-              </div>
+                    pour la Santé
+                  </h1>
+                </div>
             </Link>
 
             {/* Navigation principale - Desktop */}
